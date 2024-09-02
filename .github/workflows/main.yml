@@ -29,8 +29,8 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./bankServices
-          file: ./bankServices/lumen/Dockerfile
+          context: ./lumen
+          file: ./lumen/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/project_csn:bank_services
       
