@@ -1,4 +1,3 @@
-# ใช้ฐาน image ของ PHP 8.2 กับ FPM
 FROM php:8.2-fpm
 
 # ติดตั้ง PHP extensions และ dependencies ที่จำเป็น
@@ -26,8 +25,8 @@ COPY ./lumen/ /var/www/
 RUN ls -la /var/www
 
 # ติดตั้ง PHP dependencies
-RUN composer install --no-dev --optimize-autoloader
+RUN ls -la /var/www && composer install --no-dev --optimize-autoloader
 
 # เปิดพอร์ต 9000 และเริ่ม PHP-FPM server
 EXPOSE 9000
-CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
+CMD ["php-fpm"]
