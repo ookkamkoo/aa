@@ -26,7 +26,7 @@ COPY ./lumen/ /var/www/
 RUN ls -la /var/www
 
 # Install PHP dependencies
-RUN composer install --no-dev --optimize-autoloader
+# RUN composer install --no-dev --optimize-autoloader
 
 # Expose port 9000 and start PHP-FPM server
 EXPOSE 9000
