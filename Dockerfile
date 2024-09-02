@@ -30,4 +30,4 @@ RUN ls -la /var/www
 
 # Expose port 9000 and start PHP-FPM server
 EXPOSE 9000
-CMD ["php-fpm"]
+CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
