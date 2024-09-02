@@ -20,7 +20,7 @@ WORKDIR /var/www
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 # คัดลอกไฟล์จาก context (ที่โฟลเดอร์ที่ Dockerfile ตั้งอยู่)
-COPY . .
+COPY ./lumen/ .
 
 # ติดตั้ง PHP dependencies
 RUN composer install --no-dev --optimize-autoloader

@@ -1,29 +1,29 @@
-# node_modules/
-# npm-debug.log
-# yarn-error.log
+node_modules/
+npm-debug.log
+yarn-error.log
 vendor/
 .env
 .env.*
-# *.log
-# .idea/
-# *.sublime-project
-# *.sublime-workspace
-# .vscode/
-# .DS_Store
-# Thumbs.db
-# build/
-# dist/
-# *.sqlite
-# *.sql
-# *.tmp
-# *.swp
-# *.cache
-# *.bak
-# *.orig
-# /storage/*.key
-# /public/hot
-# /public/storage
-# /storage/*.php
-# /storage/framework/cache/data/
-# /storage/framework/sessions/
-# /storage/framework/views/
+*.log
+.idea/
+*.sublime-project
+*.sublime-workspace
+.vscode/
+.DS_Store
+Thumbs.db
+build/
+dist/
+*.sqlite
+*.sql
+*.tmp
+*.swp
+*.cache
+*.bak
+*.orig
+/storage/*.key
+/public/hot
+/public/storage
+/storage/*.php
+/storage/framework/cache/data/
+/storage/framework/sessions/
+/storage/framework/views/

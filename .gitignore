@@ -1,50 +1,50 @@
-# # Node modules and build artifacts
-# node_modules/
-# npm-debug.log
-# yarn-error.log
+# Node modules and build artifacts
+node_modules/
+npm-debug.log
+yarn-error.log
 
-# # Composer dependencies
-# vendor/
+# Composer dependencies
+vendor/
 
 # Environment files
 .env
 .env.*
 
-# # Log files
-# *.log
+# Log files
+*.log
 
-# # IDE and editor files
-# .idea/
-# *.sublime-project
-# *.sublime-workspace
-# .vscode/
+# IDE and editor files
+.idea/
+*.sublime-project
+*.sublime-workspace
+.vscode/
 
-# # OS-specific files
-# .DS_Store
-# Thumbs.db
+# OS-specific files
+.DS_Store
+Thumbs.db
 
-# # Build artifacts
-# build/
-# dist/
+# Build artifacts
+build/
+dist/
 
-# # Database files
-# *.sqlite
-# *.sql
+# Database files
+*.sqlite
+*.sql
 
-# # Temporary files
-# *.tmp
-# *.swp
+# Temporary files
+*.tmp
+*.swp
 
-# # Miscellaneous
-# *.cache
-# *.bak
-# *.orig
+# Miscellaneous
+*.cache
+*.bak
+*.orig
 
-# # Laravel-specific
-# /storage/*.key
-# /public/hot
-# /public/storage
-# /storage/*.php
-# /storage/framework/cache/data/
-# /storage/framework/sessions/
-# /storage/framework/views/
+# Laravel-specific
+/storage/*.key
+/public/hot
+/public/storage
+/storage/*.php
+/storage/framework/cache/data/
+/storage/framework/sessions/
+/storage/framework/views/
