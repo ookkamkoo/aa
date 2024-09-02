@@ -1,6 +1,7 @@
+# Use PHP 8.2 with FPM as the base image
 FROM php:8.2-fpm
 
-# ติดตั้ง PHP extensions และ dependencies ที่จำเป็น
+# Install necessary PHP extensions and dependencies
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
@@ -12,21 +13,21 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install gd zip
 
-# ตั้งค่า working directory
+# Set the working directory
 WORKDIR /var/www
 
-# คัดลอกไฟล์ composer จาก image ของ composer
+# Copy composer binary from composer image
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-# คัดลอกไฟล์จาก context (ที่โฟลเดอร์ที่ Dockerfile ตั้งอยู่)
-COPY ./lumen/ /var/www/
+# Copy the contents of the lumen directory into the container
+COPY lumen/ /var/www/
 
-# ตรวจสอบไฟล์ที่ถูกคัดลอก
+# List the contents of /var/www to verify files are copied
 RUN ls -la /var/www
 
-# ติดตั้ง PHP dependencies
-RUN ls -la /var/www && composer install --no-dev --optimize-autoloader
+# Install PHP dependencies
+RUN composer install --no-dev --optimize-autoloader
 
-# เปิดพอร์ต 9000 และเริ่ม PHP-FPM server
+# Expose port 9000 and start PHP-FPM server
 EXPOSE 9000
 CMD ["php-fpm"]
