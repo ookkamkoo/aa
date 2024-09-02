@@ -20,7 +20,7 @@ WORKDIR /var/www
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 # Copy the contents of the lumen directory into the container
-COPY lumen/ /var/www/
+COPY ./lumen/ /var/www/
 
 # List the contents of /var/www to verify files are copied
 RUN ls -la /var/www
