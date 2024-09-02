@@ -13,9 +13,12 @@ jobs:
     
       - name: Checkout code
         uses: actions/checkout@v4
-      
-      - name: List files
+
+      - name: List files in repository
         run: ls -R
+      
+      - name: List files in lumen directory
+        run: ls -R ./lumen
       
       - name: Login to Docker Hub
         uses: docker/login-action@v3
