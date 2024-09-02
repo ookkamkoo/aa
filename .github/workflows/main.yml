@@ -32,7 +32,7 @@ jobs:
           context: .
           file: ./lumen/Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/bank_services:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/project_csn:bank_services
       
       # Set up SSH
       - name: Set up SSH
