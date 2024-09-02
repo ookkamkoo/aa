@@ -45,8 +45,8 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} '
             echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-            docker stop my-lumen-app || true
-            docker rm my-lumen-app || true
+            docker stop bank_services || true
+            docker rm bank_services || true
             docker pull ${{ secrets.DOCKER_USERNAME }}/project_csn:bank_services
-            docker run -d --name my-lumen-app -p 9000:9000 ${{ secrets.DOCKER_USERNAME }}/project_csn:bank_services
+            docker run -d --name bank_services -p 9000:9000 ${{ secrets.DOCKER_USERNAME }}/project_csn:bank_services
           '
