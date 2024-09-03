@@ -33,7 +33,6 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/project_csn:bank_services
-      # sdsdsd
       # # Set up SSH
       # - name: Set up SSH
       #   uses: webfactory/ssh-agent@v0.5.3
