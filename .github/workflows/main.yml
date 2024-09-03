@@ -34,19 +34,24 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/project_csn:bank_services
       
-      # Set up SSH
-      - name: Set up SSH
-        uses: webfactory/ssh-agent@v0.5.3
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+      # # Set up SSH
+      # - name: Set up SSH
+      #   uses: webfactory/ssh-agent@v0.5.3
+      #   with:
+      #     ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
       
       # Deploy to server
-      - name: Deploy to server
         run: |
-          ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} '
-            echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
-            docker stop bank_services || true
-            docker rm bank_services || true
-            docker pull ${{ secrets.DOCKER_USERNAME }}/project_csn:bank_services
-            docker run -d --name bank_services -p 9000:9000 ${{ secrets.DOCKER_USERNAME }}/project_csn:bank_services
-          '
+            sshpass -p ${{ secrets.SSH_PASSWORD }} ssh -o StrictHostKeyChecking=no -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USERNAME }}@${{ secrets.SSH_HOST }} '
+            cd ../var/www/
+            # echo "${{ secrets.DOCKER_USERNAME }}" | docker login -u "${{ secrets.DOCKER_PASSWORD }}" --password-stdin
+            docker login -u "${{ secrets.DOCKER_USERNAME }}" -p "${{ secrets.DOCKER_PASSWORD }}"
+            # docker stop bank_services
+            # docker rm bank_services
+            docker-compose down
+            docker-compose rm
+            # echo "bank_services"
+            docker pull littleweb14766/project_csn:bank_services
+            # # docker run -d --name bank_services -p 3002:3002 littleweb14766/project_csn:bank_services
+            docker-compose up -d
+            '
